@@ -12,7 +12,8 @@ public class Main {
 
 //        System.out.println("Linear Search: " + linearSearch(unsortedArray, 44));
 //        System.out.println("Binary Search: " + binarySearch(sortedArray, 493));
-        System.out.println("Selection Sort: " + Arrays.toString(selectionSort(unsortedArray)));
+//        System.out.println("Selection Sort: " + Arrays.toString(selectionSort(unsortedArray)));
+        System.out.println("Bubble Sort: " + Arrays.toString(bubbleSort(unsortedArray)));
     }
 
 
@@ -79,6 +80,29 @@ public class Main {
                 continue;
             }
             currentIndex++;
+        }
+        return numbers;
+    }
+
+    private static int[] bubbleSort(int[] numbers) {
+        int sorted = numbers.length;
+        int leftIndex = 0;
+        int rightIndex = 1;
+        while (sorted > 0) {
+            if (numbers[leftIndex] > numbers[rightIndex]) {
+                int temp = numbers[rightIndex];
+                numbers[rightIndex] = numbers[leftIndex];
+                numbers[leftIndex] = temp;
+            }
+
+            if (rightIndex == sorted - 1 || leftIndex == sorted - 1) {
+                sorted--;
+                leftIndex = 0;
+                rightIndex = 1;
+                continue;
+            }
+            leftIndex++;
+            rightIndex++;
         }
         return numbers;
     }
